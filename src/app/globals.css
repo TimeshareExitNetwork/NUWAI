@@ -1,26 +1,108 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark-luxe semantic tokens.
+     ink = warm cream foreground, bone = lifted dark card surface,
+     linen = deep page background, carbon = truest black. */
+  --ink: #f2ebdd;
+  --bone: #14171d;
+  --linen: #0a0b0f;
+  --smoke: #1d2128;
+  --carbon: #050609;
+  --sand: #c9b89a;
+  --ocean: #4a6e7d;
+  --gold: #c9a86a;
+  --mute: rgba(242, 235, 221, 0.56);
+  --hair: rgba(242, 235, 221, 0.1);
+
+  --display: var(--font-instrument-serif), "Times New Roman", Georgia, serif;
+  --body: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    sans-serif;
+  --mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--linen);
+  color: var(--ink);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: clip;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--linen);
+}
+
+.h-display {
+  font-family: var(--display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.94;
+  color: var(--ink);
+}
+
+.h-italic {
+  font-style: italic;
+}
+
+.nu-mobile-stage {
+  width: 100%;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      1200px 600px at 50% -200px,
+      rgba(201, 168, 106, 0.1),
+      transparent 60%
+    ),
+    var(--linen);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px 120px;
+}
+
+:focus-visible {
+  outline: 1.5px solid rgba(10, 10, 10, 0.4);
+  outline-offset: 3px;
+}
+
+@keyframes nu-marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes nu-marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nu-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
