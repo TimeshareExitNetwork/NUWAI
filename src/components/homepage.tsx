@@ -204,14 +204,14 @@ function HomeHero() {
               display: "block",
             }}
           >
-            <SplitText text="Travel," by="word" stagger={0.08} duration={1.1} />
+            <SplitText text="The new way" by="word" stagger={0.08} duration={1.1} />
             <br />
             <SplitText
-              text="designed for you."
+              text="to travel."
               by="word"
               stagger={0.1}
               duration={1.1}
-              accentWord="designed"
+              accentWord="travel."
               accentColor="var(--gold)"
             />
           </h1>
@@ -224,16 +224,16 @@ function HomeHero() {
               color: "rgba(242,235,221,0.82)",
             }}
           >
-            One brief in. Three private plans out. The trip you would never plan
-            yourself — quietly commissioned from the world&rsquo;s most discreet
-            travel advisors.
+            A members-only travel platform. Curated stays, exclusive perks,
+            and concierge-level support — without the friction of traditional
+            luxury travel.
           </p>
           <div style={{ marginTop: 40, display: "flex", gap: 12 }}>
-            <PillButton size="lg" variant="solid">
-              Plan my trip <ArrowRight />
+            <PillButton size="lg" variant="solid" as="a" href="/membership">
+              Join NUWAI <ArrowRight />
             </PillButton>
-            <PillButton size="lg" variant="ghost">
-              See an example
+            <PillButton size="lg" variant="ghost" as="a" href="/destinations">
+              Explore stays
             </PillButton>
           </div>
         </div>
@@ -345,9 +345,9 @@ function HomeHero() {
 
 function HomeManifesto() {
   const stats: { n: number; suf?: string; pre?: string; l: string }[] = [
-    { n: 48, suf: "h", l: "avg. advisor response" },
-    { n: 3, l: "curated plans per brief" },
-    { n: 0, pre: "$", l: "until you book" },
+    { n: 240, suf: "+", l: "NUWAI Approved stays" },
+    { n: 24, suf: "/7", l: "concierge access" },
+    { n: 0, pre: "$", l: "to start browsing" },
   ];
   return (
     <section style={{ background: "var(--linen)", padding: "180px 0 140px" }}>
@@ -373,7 +373,7 @@ function HomeManifesto() {
               }}
             >
               <ScrollWords
-                text="NUWAI is a private travel atelier. You describe the trip in three minutes. Three vetted advisors design it. You choose the one you want to live — we book everything and stay on as your concierge."
+                text="NUWAI is a private members club for modern travelers. Join, and unlock a curated catalog of NUWAI Approved stays, member rates you won't find anywhere else, and a concierge who knows your taste better than your group chat."
                 baseColor="rgba(242,235,221,0.20)"
                 activeColor="var(--ink)"
                 accentWord="NUWAI"
@@ -718,18 +718,18 @@ function HomeHow() {
   const steps = [
     {
       n: "01",
-      t: "Tell us where",
-      b: "Destination, dates, budget, vibe. Three minutes, conversational.",
+      t: "Join NUWAI",
+      b: "Three-minute onboarding. Tell us your destinations, vibe, and how you like to travel.",
     },
     {
       n: "02",
-      t: "Advisors design for you",
-      b: "Three vetted advisors submit fully-built plans within 48 hours.",
+      t: "Unlock the catalog",
+      b: "A curated collection of NUWAI Approved stays — member rates, perks, and quiet upgrades.",
     },
     {
       n: "03",
-      t: "Choose your trip",
-      b: "Compare side-by-side. Pick one. We book and concierge the rest.",
+      t: "Concierge does the rest",
+      b: "Refine, book, and travel. Your concierge handles upgrades, reservations, and edge cases.",
     },
   ];
   return (
@@ -753,8 +753,8 @@ function HomeHow() {
             <span className="h-italic">a feeling</span> and a flight.
           </h2>
         </div>
-        <PillButton variant="ghost" size="md">
-          Start a request <ArrowRight />
+        <PillButton variant="ghost" size="md" as="a" href="/membership">
+          Become a member <ArrowRight />
         </PillButton>
       </div>
 
@@ -1182,29 +1182,28 @@ function ProposalPreview({ p }: { p: Proposal }) {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={p.advisor.avatar}
-            alt=""
+          <span
             style={{
-              width: 28,
-              height: 28,
-              borderRadius: "50%",
-              objectFit: "cover",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 5,
+              fontFamily: "var(--mono)",
+              fontSize: 10,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "var(--gold)",
             }}
-          />
-          <span style={{ fontSize: 13 }}>{p.advisor.name}</span>
+          >
+            <Star size={11} /> NUWAI Approved
+          </span>
           <span
             style={{
               marginLeft: "auto",
-              display: "flex",
-              alignItems: "center",
-              gap: 4,
               color: "var(--mute)",
               fontSize: 12,
             }}
           >
-            <Star size={11} /> {p.advisor.rating}
+            {p.hotel.name}
           </span>
         </div>
         <div
@@ -1277,13 +1276,13 @@ function HomeProposals() {
         }}
       >
         <div>
-          <EyebrowLabel>A real trip request</EyebrowLabel>
+          <EyebrowLabel>Curated by NUWAI</EyebrowLabel>
           <h2
             className="h-display"
             style={{ fontSize: 72, margin: "20px 0 0", maxWidth: 720 }}
           >
-            Maya wanted Tulum.{" "}
-            <span className="h-italic">Three advisors</span> answered.
+            Three takes on Tulum.{" "}
+            <span className="h-italic">All NUWAI Approved.</span>
           </h2>
           <p
             style={{
@@ -1294,12 +1293,12 @@ function HomeProposals() {
               color: "var(--mute)",
             }}
           >
-            Same brief. Three completely different weeks. This is what the
-            marketplace produces.
+            Same destination. Three completely different weeks. Hand-picked by
+            our editors, with member rates and perks at every stay.
           </p>
         </div>
-        <PillButton variant="ghost" size="md">
-          See full comparison <ArrowRight />
+        <PillButton variant="ghost" size="md" as="a" href="/atelier">
+          Browse collections <ArrowRight />
         </PillButton>
       </div>
 
@@ -1479,34 +1478,34 @@ function TierCardWrap({ tier, idx }: { tier: Tier; idx: number }) {
 function HomeMembership() {
   const tiers: Tier[] = [
     {
-      name: "Free",
-      tag: "For your first trip",
+      name: "NUWAI",
+      tag: "Start here",
       price: "$0",
-      sub: "No subscription",
+      sub: "Free to join",
       bg: "var(--bone)",
       fg: "var(--ink)",
       accent: "var(--ink)",
       perks: [
-        "One trip request at a time",
-        "Three advisor proposals",
-        "In-app concierge chat",
-        "Standard booking support",
+        "Browse the curated catalog",
+        "Save stays you love",
+        "Standard concierge chat",
+        "Member rates at select stays",
       ],
     },
     {
       name: "Select",
-      tag: "The way to travel",
+      tag: "The new way to travel",
       price: "$240",
       sub: "per year",
       bg: "var(--ocean)",
       fg: "var(--bone)",
       accent: "var(--gold)",
       perks: [
-        "Three active requests",
-        "Priority advisor matching",
-        "24/7 concierge over chat",
-        "Hotel upgrades & late checkout",
-        "5% credit on every booking",
+        "Full NUWAI Approved catalog",
+        "Member rates at every stay",
+        "Priority concierge response",
+        "Complimentary upgrades & late checkout",
+        "5% travel credit on every booking",
       ],
       featured: true,
     },
@@ -1519,12 +1518,12 @@ function HomeMembership() {
       fg: "var(--ink)",
       accent: "var(--gold)",
       perks: [
-        "Unlimited requests",
-        "Top 1% advisors only",
+        "Everything in Select",
         "Dedicated concierge by name",
         "Airport transfers worldwide",
-        "Member-only experiences",
+        "Members-only experiences & drops",
         "Suite upgrades guaranteed",
+        "Custom itineraries on request",
       ],
     },
   ];

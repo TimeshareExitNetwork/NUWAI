@@ -20,9 +20,9 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "NUWAI — Travel, designed for you.",
+  title: "NUWAI — The new way to travel.",
   description:
-    "One brief in. Three private plans out. The trip you would never plan yourself — quietly commissioned from the world's most discreet travel advisors.",
+    "A members-only travel platform. Curated stays, exclusive perks, and concierge-level support — without the friction of traditional luxury travel.",
 };
 
 export default function RootLayout({

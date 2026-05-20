@@ -11,10 +11,10 @@ export const siteInner: CSSProperties = {
 };
 
 const NAV_LINKS = [
-  { label: "Atelier", href: "/atelier" },
-  { label: "Destinations", href: "/destinations" },
+  { label: "Stays", href: "/destinations" },
+  { label: "Collections", href: "/atelier" },
   { label: "Membership", href: "/membership" },
-  { label: "Advisors", href: "/advisors" },
+  { label: "Concierge", href: "/concierge" },
   { label: "Journal", href: "/journal" },
 ];
 
@@ -94,8 +94,8 @@ export function SiteNav({
           >
             Sign in
           </Link>
-          <PillButton size="sm" as="a" href="/trip-request">
-            Plan my trip <ArrowRight size={12} />
+          <PillButton size="sm" as="a" href="/membership">
+            Join NUWAI <ArrowRight size={12} />
           </PillButton>
         </div>
       </div>
@@ -105,19 +105,19 @@ export function SiteNav({
 
 const FOOTER_COLS: [string, { label: string; href: string }[]][] = [
   [
-    "Product",
+    "Platform",
     [
-      { label: "How it works", href: "/atelier" },
-      { label: "Trip request", href: "/trip-request" },
-      { label: "Compare proposals", href: "/compare" },
+      { label: "Stays", href: "/destinations" },
+      { label: "Collections", href: "/atelier" },
       { label: "Concierge", href: "/concierge" },
+      { label: "Membership", href: "/membership" },
     ],
   ],
   [
     "Company",
     [
       { label: "About", href: "/about" },
-      { label: "Advisors", href: "/advisors" },
+      { label: "Journal", href: "/journal" },
       { label: "Press", href: "/press" },
       { label: "Careers", href: "/careers" },
     ],
@@ -126,7 +126,7 @@ const FOOTER_COLS: [string, { label: string; href: string }[]][] = [
     "Support",
     [
       { label: "Help", href: "/help" },
-      { label: "Member portal", href: "/membership" },
+      { label: "Sign in", href: "/sign-in" },
       { label: "Terms", href: "/terms" },
       { label: "Privacy", href: "/privacy" },
     ],
@@ -162,8 +162,8 @@ export function SiteFooter() {
               lineHeight: 1.5,
             }}
           >
-            A curated travel marketplace. Submit one trip. Receive three
-            plans. Choose your perfect one.
+            A members-only travel platform. Curated stays, member rates,
+            and a concierge in your pocket.
           </p>
         </div>
         {FOOTER_COLS.map(([h, items]) => (
