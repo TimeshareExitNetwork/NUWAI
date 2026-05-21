@@ -70,259 +70,251 @@ export const VIBES = [
   "Romance",
 ];
 
-export type Proposal = {
+export type Collection = {
   id: string;
-  advisor: {
-    name: string;
-    city: string;
-    rating: number;
-    trips: number;
-    avatar: string;
-  };
-  title: string;
-  headline: string;
-  hotel: { name: string; style: string; nights: number; img: string };
-  price: number;
-  perPerson: number;
-  fit: string;
-  vibe: string[];
-  flag: string;
-  itinerary: { day: string; t: string; body: string }[];
-  experiences: string[];
-  upgrades: { name: string; delta: number }[];
-  breakdown: { k: string; v: number }[];
+  name: string;
+  tag: string;
+  blurb: string;
+  cover: string;
+  count: number;
 };
 
-export const PROPOSALS: Proposal[] = [
+export const COLLECTIONS: Collection[] = [
   {
-    id: "p1",
-    advisor: {
-      name: "Sofía Marín",
-      city: "Mexico City",
-      rating: 4.97,
-      trips: 312,
-      avatar:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop",
-    },
-    title: "Quiet jungle, loud sunsets",
-    headline: "A slow week between cenote mornings and beach-club nights.",
+    id: "beach-escapes",
+    name: "Beach Escapes",
+    tag: "Sand · Slow · Salt",
+    blurb:
+      "Tented beach resorts, cliffside villas, and the quiet stretches of coast nobody Instagrams yet.",
+    cover:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&auto=format&fit=crop&q=80",
+    count: 42,
+  },
+  {
+    id: "wellness-retreats",
+    name: "Wellness Retreats",
+    tag: "Reset · Restore",
+    blurb:
+      "Properties where the spa is the architecture. Nutritionists on-site, sunrise practice, no Wi-Fi in the rooms.",
+    cover:
+      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1600&auto=format&fit=crop&q=80",
+    count: 28,
+  },
+  {
+    id: "city-weekends",
+    name: "City Weekends",
+    tag: "48h · Editorial",
+    blurb:
+      "Small hotels in big cities. Three nights, walking-radius restaurants, your concierge already knows the maître d'.",
+    cover:
+      "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1600&auto=format&fit=crop&q=80",
+    count: 36,
+  },
+  {
+    id: "remote-work-stays",
+    name: "Remote Work Stays",
+    tag: "WiFi · Focus · Air",
+    blurb:
+      "Month-long stays at properties built for the laptop class. Real internet, ergonomic everything, mornings to yourself.",
+    cover:
+      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1600&auto=format&fit=crop&q=80",
+    count: 24,
+  },
+  {
+    id: "romantic-getaways",
+    name: "Romantic Getaways",
+    tag: "Just the two of you",
+    blurb:
+      "Adults-only properties, private dinners, no spreadsheets in sight. Tested by editors traveling without their phones.",
+    cover:
+      "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=1600&auto=format&fit=crop&q=80",
+    count: 31,
+  },
+  {
+    id: "members-favorites",
+    name: "Members Favorites",
+    tag: "What everyone loves",
+    blurb:
+      "The properties NUWAI members book twice. Quiet word of mouth, surfaced for you.",
+    cover:
+      "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1600&auto=format&fit=crop&q=80",
+    count: 18,
+  },
+];
+
+export type FeaturedStay = {
+  id: string;
+  hotel: { name: string; style: string; nights: number; img: string };
+  title: string;
+  headline: string;
+  vibe: string[];
+  flag: string;
+  perPerson: number;
+  fit: string;
+  perks: string[];
+};
+
+export const FEATURED_STAYS: FeaturedStay[] = [
+  {
+    id: "habitas-tulum",
     hotel: {
       name: "Habitas Tulum",
       style: "Tented eco-resort",
       nights: 7,
       img: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1400&auto=format&fit=crop",
     },
-    price: 8420,
-    perPerson: 4210,
-    fit: "You said slow, scenic, and a soft party. This leans into the slow.",
+    title: "Quiet jungle, loud sunsets",
+    headline: "A slow week between cenote mornings and beach-club nights.",
     vibe: ["Restorative", "Beachfront", "Wellness"],
-    flag: "Editor’s pick",
-    itinerary: [
-      {
-        day: "Day 1",
-        t: "Arrival",
-        body: "Private transfer from CUN. Welcome ceremony, sound bath at sunset.",
-      },
-      {
-        day: "Day 2",
-        t: "Cenote ring",
-        body: "Dawn paddle through Sac Actun. Lunch at Arca. Free afternoon.",
-      },
-      {
-        day: "Day 3",
-        t: "Sian Ka’an",
-        body: "Biosphere boat day. Lobster lunch on a sandbar.",
-      },
-      {
-        day: "Day 4",
-        t: "Reset",
-        body: "Spa morning, beach yoga, dinner at Hartwood.",
-      },
-      {
-        day: "Day 5",
-        t: "Ruins",
-        body: "Sunrise at Tulum ruins, before the crowds.",
-      },
-      {
-        day: "Day 6",
-        t: "Beach club",
-        body: "Bonbonniere day pass. Cocktails at Casa Jaguar.",
-      },
-      {
-        day: "Day 7",
-        t: "Slow exit",
-        body: "Late checkout, ceviche on the beach, transfer.",
-      },
-    ],
-    experiences: [
-      "Cenote dive",
-      "Mayan blessing",
-      "Sandbar lunch",
-      "Private chef night",
-    ],
-    upgrades: [
-      { name: "Helicopter to Holbox", delta: 1240 },
-      { name: "Sunrise hot-air balloon", delta: 480 },
-    ],
-    breakdown: [
-      { k: "Hotel (7 nights)", v: 4900 },
-      { k: "Experiences", v: 1650 },
-      { k: "Transfers & guide", v: 720 },
-      { k: "Dining (4 reserved)", v: 850 },
-      { k: "Concierge fee", v: 300 },
+    flag: "Editor's pick",
+    perPerson: 4210,
+    fit: "For when you want to disappear into the trees and reappear at sunset.",
+    perks: [
+      "Tent upgrade on arrival",
+      "Sunrise sound bath",
+      "Late checkout to 4pm",
     ],
   },
   {
-    id: "p2",
-    advisor: {
-      name: "Daniel Okafor",
-      city: "New York",
-      rating: 4.92,
-      trips: 187,
-      avatar:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop",
-    },
-    title: "Hotel-hop the coast",
-    headline:
-      "Two boutique stays. Beach club energy. A boat day in the middle.",
+    id: "azulik-casa-malca",
     hotel: {
       name: "Azulik + Casa Malca",
       style: "Adults-only · split stay",
       nights: 7,
       img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1400&auto=format&fit=crop",
     },
-    price: 11980,
-    perPerson: 5990,
-    fit: "You wanted some scene. This is the high-design version of that.",
+    title: "Hotel-hop the coast",
+    headline: "Two boutique stays. Beach-club energy. A boat day in the middle.",
     vibe: ["Design-forward", "Social", "Photogenic"],
-    flag: "Most popular",
-    itinerary: [
-      {
-        day: "Day 1",
-        t: "Check-in Azulik",
-        body: "Private treehouse villa. Dinner at Tseen Ja.",
-      },
-      {
-        day: "Day 2",
-        t: "Beach club",
-        body: "Bagatelle reserved daybed. Massage at IK Lab.",
-      },
-      {
-        day: "Day 3",
-        t: "Boat day",
-        body: "Yacht charter to Maroma. Lunch on board.",
-      },
-      {
-        day: "Day 4",
-        t: "Move to Malca",
-        body: "Transfer south. Pool afternoon. Dinner at Philippe.",
-      },
-      {
-        day: "Day 5",
-        t: "Art day",
-        body: "SFER IK + private studio visit with curator.",
-      },
-      {
-        day: "Day 6",
-        t: "Big night",
-        body: "Bonbonniere reserved table. Late dinner at Arca.",
-      },
-      {
-        day: "Day 7",
-        t: "Float out",
-        body: "Spa morning, transfer to CUN.",
-      },
-    ],
-    experiences: [
-      "Yacht charter",
-      "Private gallery tour",
-      "Mezcal tasting",
-      "Beach club table",
-    ],
-    upgrades: [
-      { name: "Private chef sandbar dinner", delta: 980 },
-      { name: "After-hours SFER IK", delta: 1400 },
-    ],
-    breakdown: [
-      { k: "Hotels (split stay)", v: 6400 },
-      { k: "Experiences", v: 2980 },
-      { k: "Transfers & guide", v: 980 },
-      { k: "Dining (6 reserved)", v: 1320 },
-      { k: "Concierge fee", v: 300 },
+    flag: "Members favorite",
+    perPerson: 5990,
+    fit: "For the design-conscious traveler who treats the hotel as the destination.",
+    perks: [
+      "Welcome dinner at Tseen Ja",
+      "Yacht day for two",
+      "IK Lab private viewing",
     ],
   },
   {
-    id: "p3",
-    advisor: {
-      name: "Priya Ramesh",
-      city: "London",
-      rating: 4.89,
-      trips: 241,
-      avatar:
-        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&auto=format&fit=crop",
-    },
-    title: "The under-the-radar week",
-    headline: "Skip the strip. Sleep in the jungle. Eat where the chefs eat.",
+    id: "jungle-keva",
     hotel: {
       name: "Jungle Keva",
       style: "Boutique · 9 rooms",
       nights: 7,
       img: "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1400&auto=format&fit=crop",
     },
-    price: 6240,
-    perPerson: 3120,
-    fit: "You said luxury-on-a-budget. This is the smartest spend.",
+    title: "The under-the-radar week",
+    headline: "Skip the strip. Sleep in the jungle. Eat where the chefs eat.",
     vibe: ["Quiet luxury", "Local", "Foodie"],
-    flag: "Best value",
-    itinerary: [
-      {
-        day: "Day 1",
-        t: "Arrival",
-        body: "Private transfer. Tasting menu at Kin Toh.",
-      },
-      {
-        day: "Day 2",
-        t: "Local cenote",
-        body: "Pre-dawn visit, no other guests. Breakfast on-site.",
-      },
-      {
-        day: "Day 3",
-        t: "Coba ruins",
-        body: "Climb at sunrise. Lunch with a Maya cook.",
-      },
-      {
-        day: "Day 4",
-        t: "Bacalar",
-        body: "Day trip to the lagoon. Private sailboat.",
-      },
-      {
-        day: "Day 5",
-        t: "Slow day",
-        body: "Hammock, library, beach. Dinner at Arca.",
-      },
-      {
-        day: "Day 6",
-        t: "Akumal",
-        body: "Snorkel with turtles. Ceviche at Lol Ha.",
-      },
-      { day: "Day 7", t: "Exit", body: "Coffee on the beach, transfer." },
+    flag: "Hidden gem",
+    perPerson: 3120,
+    fit: "For the traveler who reads the menu before they read the property.",
+    perks: [
+      "Maya cooking class included",
+      "Private cenote at dawn",
+      "Wine pairing across the week",
     ],
-    experiences: [
-      "Private cenote",
-      "Maya cooking class",
-      "Bacalar sailboat",
-      "Akumal snorkel",
+  },
+];
+
+export type Perk = {
+  id: string;
+  title: string;
+  body: string;
+  tier: "all" | "select" | "black";
+};
+
+export const PERKS: Perk[] = [
+  {
+    id: "member-rates",
+    title: "Member rates",
+    body: "Rates negotiated directly with our properties. Not visible to the public, never sold to OTAs.",
+    tier: "all",
+  },
+  {
+    id: "upgrades",
+    title: "Complimentary upgrades",
+    body: "Best available room upgrade at check-in. Suite upgrades guaranteed on Black.",
+    tier: "select",
+  },
+  {
+    id: "late-checkout",
+    title: "Late checkout, every time",
+    body: "4pm checkout on Select. Confirmed in advance, never apologized for.",
+    tier: "select",
+  },
+  {
+    id: "concierge",
+    title: "Concierge in your pocket",
+    body: "Chat with a concierge who knows your taste. Bookings, restaurants, last-minute changes.",
+    tier: "all",
+  },
+  {
+    id: "transfers",
+    title: "Airport transfers worldwide",
+    body: "Private car at every arrival and departure. Black members only.",
+    tier: "black",
+  },
+  {
+    id: "experiences",
+    title: "Members-only experiences",
+    body: "Private gallery hours, chef tables, sunrise access to places that don't open until 9.",
+    tier: "black",
+  },
+];
+
+export type Tier = {
+  id: "nuwai" | "select" | "black";
+  name: string;
+  tag: string;
+  price: string;
+  cadence: string;
+  perks: string[];
+  featured?: boolean;
+};
+
+export const TIERS: Tier[] = [
+  {
+    id: "nuwai",
+    name: "NUWAI",
+    tag: "Start here",
+    price: "$0",
+    cadence: "Free to join",
+    perks: [
+      "Browse the curated catalog",
+      "Save stays you love",
+      "Standard concierge chat",
+      "Member rates at select stays",
     ],
-    upgrades: [
-      { name: "Wine pairing across the week", delta: 540 },
-      { name: "Photography session", delta: 620 },
+  },
+  {
+    id: "select",
+    name: "Select",
+    tag: "The new way to travel",
+    price: "$240",
+    cadence: "per year",
+    perks: [
+      "Full NUWAI Approved catalog",
+      "Member rates at every stay",
+      "Priority concierge response",
+      "Complimentary upgrades & late checkout",
+      "5% travel credit on every booking",
     ],
-    breakdown: [
-      { k: "Hotel (7 nights)", v: 3080 },
-      { k: "Experiences", v: 1540 },
-      { k: "Transfers & guide", v: 620 },
-      { k: "Dining (5 reserved)", v: 700 },
-      { k: "Concierge fee", v: 300 },
+    featured: true,
+  },
+  {
+    id: "black",
+    name: "Black",
+    tag: "By invitation",
+    price: "$3,600",
+    cadence: "per year",
+    perks: [
+      "Everything in Select",
+      "Dedicated concierge by name",
+      "Airport transfers worldwide",
+      "Members-only experiences & drops",
+      "Suite upgrades guaranteed",
+      "Custom itineraries on request",
     ],
   },
 ];
@@ -340,21 +332,21 @@ export const MESSAGES: ChatMessage[] = [
     from: "concierge",
     name: "NUWAI Concierge",
     time: "9:41",
-    body: "Morning, Maya. Three proposals are in for Tulum. Want me to walk you through them?",
+    body: "Morning, Maya. I pulled three NUWAI Approved stays in Tulum that match what you described — want me to walk you through them?",
   },
-  { from: "me", body: "Yes please. Quick take on Sofía’s?" },
+  { from: "me", body: "Yes please. Quick take on the first?" },
   {
     from: "concierge",
     name: "NUWAI Concierge",
     time: "9:42",
-    body: "Slowest of the three. Habitas, cenote-heavy, one boat day. Closest to the brief you wrote.",
+    body: "Habitas Tulum. Tented eco-resort, cenote-heavy, one boat day. Slowest of the three. Closest to the trip you described in onboarding.",
   },
-  { from: "me", body: "How flexible is the date on that one?" },
+  { from: "me", body: "How flexible are the dates?" },
   {
     from: "concierge",
     name: "NUWAI Concierge",
     time: "9:42",
-    body: "Mar 14 → 21 is open. ±2 days is open too. Want me to hold a tent room while you decide?",
+    body: "Mar 14 → 21 is open. ±2 days also available. Want me to hold a tent room while you decide?",
     actions: ["Hold the room", "Show me other dates"],
   },
   {
@@ -365,7 +357,7 @@ export const MESSAGES: ChatMessage[] = [
     from: "concierge",
     name: "NUWAI Concierge",
     time: "9:43",
-    body: "Done. Tent #14 held for 48 hours. Sound bath added to Day 1 — Sofía already had one penciled in, so no extra cost.",
+    body: "Done. Tent #14 held for 48 hours. Sunrise sound bath added to Day 1 — comes with your Select-tier perk, so no extra charge.",
   },
 ];
 
@@ -373,92 +365,16 @@ export const TESTIMONIALS = [
   {
     name: "Lena R.",
     city: "Brooklyn",
-    body: "I described the trip in three sentences. Three days later I had three trips I wanted to take. Picked one. It was perfect.",
+    body: "Joined NUWAI on a whim before a Tulum trip. Got upgraded to a suite I couldn't have booked publicly, paid less, and my concierge held a sunset reservation for me from 5,000 miles away.",
   },
   {
     name: "Marcus W.",
     city: "Austin",
-    body: "NUWAI saved a friend group of seven from a Notion-doc death spiral. Worth the membership for the group chat alone.",
+    body: "I used to spend hours on Booking.com and end up at the same five hotels. NUWAI sent me to a 12-room property in Oaxaca I'd never have found. Best trip I've taken in a decade.",
   },
   {
     name: "Aiyana K.",
     city: "Vancouver",
-    body: "It’s the only travel product I’ve used that felt designed for people like me, not for my parents.",
-  },
-];
-
-export type AdvisorRequest = {
-  id: string;
-  traveler: string;
-  dest: string;
-  budget: string;
-  travelers: number;
-  vibe: string;
-  posted: string;
-  status: "New" | "Drafting" | "Submitted" | "Won";
-  deadline: string;
-  match: number;
-};
-
-export const ADVISORS_INBOX: AdvisorRequest[] = [
-  {
-    id: "r1",
-    traveler: "Maya L.",
-    dest: "Tulum",
-    budget: "$8–12k",
-    travelers: 2,
-    vibe: "Slow · Foodie",
-    posted: "14m ago",
-    status: "New",
-    deadline: "36h",
-    match: 92,
-  },
-  {
-    id: "r2",
-    traveler: "Jordan & K.",
-    dest: "Amalfi Coast",
-    budget: "$15–20k",
-    travelers: 2,
-    vibe: "Romantic · Slow",
-    posted: "2h ago",
-    status: "New",
-    deadline: "46h",
-    match: 88,
-  },
-  {
-    id: "r3",
-    traveler: "The Park 6",
-    dest: "Ibiza",
-    budget: "$30k+ group",
-    travelers: 6,
-    vibe: "Party · Yacht",
-    posted: "6h ago",
-    status: "Drafting",
-    deadline: "24h",
-    match: 81,
-  },
-  {
-    id: "r4",
-    traveler: "Theo M.",
-    dest: "Tokyo",
-    budget: "$6–9k",
-    travelers: 1,
-    vibe: "Solo · Foodie",
-    posted: "Yesterday",
-    status: "Submitted",
-    deadline: "—",
-    match: 96,
-  },
-  {
-    id: "r5",
-    traveler: "Reina S.",
-    dest: "Lisbon",
-    budget: "$4–6k",
-    travelers: 2,
-    vibe: "Slow · Creative",
-    posted: "Yesterday",
-    status: "Won",
-    deadline: "—",
-    match: 94,
+    body: "It's the only travel product I've used that feels designed for people like me, not for my parents. The concierge actually gets it.",
   },
 ];

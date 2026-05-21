@@ -19,7 +19,7 @@ import {
   useInView,
 } from "./effects";
 import { SiteFooter, SiteNav, siteInner } from "./site-chrome";
-import { DESTINATIONS, PROPOSALS, Proposal, TESTIMONIALS } from "@/lib/data";
+import { DESTINATIONS, FEATURED_STAYS, FeaturedStay, TESTIMONIALS } from "@/lib/data";
 
 const inner: CSSProperties = siteInner;
 
@@ -1118,7 +1118,7 @@ function HomeDestinations() {
   );
 }
 
-function ProposalPreview({ p }: { p: Proposal }) {
+function StayPreview({ p }: { p: FeaturedStay }) {
   const imgRef = useRef<HTMLDivElement>(null);
   return (
     <div
@@ -1309,9 +1309,9 @@ function HomeProposals() {
           gap: 20,
         }}
       >
-        {PROPOSALS.map((p) => (
+        {FEATURED_STAYS.map((p) => (
           <TiltCard key={p.id} max={5}>
-            <ProposalPreview p={p} />
+            <StayPreview p={p} />
           </TiltCard>
         ))}
       </div>
