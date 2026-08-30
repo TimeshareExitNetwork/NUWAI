@@ -218,6 +218,26 @@ export function SiteFooter() {
         <span>© NUWAI Travel, Inc. 2026</span>
         <span>Made for the next ten years of travel</span>
       </div>
+      <div
+        style={{
+          ...siteInner,
+          marginTop: 16,
+          fontFamily: "var(--mono)",
+          fontSize: 11,
+          letterSpacing: "0.08em",
+          color: "rgba(250,246,240,0.5)",
+          textTransform: "uppercase",
+        }}
+      >
+        <a
+          href="https://www.nexvato.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "inherit", textDecoration: "none" }}
+        >
+          Powered by Nexvato
+        </a>
+      </div>
     </footer>
   );
 }
